@@ -11,3 +11,5 @@ homebrew_cask_packages:
   - barrier
 
 user_name: jalex
+
+host_name: jalex-macmini
