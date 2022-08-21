@@ -1,4 +1,10 @@
 ---
+- name: Set hostname
+  become: yes
+  ansible.builtin.hostname:
+    name: "{{ host_name }}"
+    use: macos
+
 - name: Upgrade all installed Mac App Store apps
   become: yes
   community.general.mas:
