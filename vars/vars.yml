@@ -1,0 +1,13 @@
+---
+homebrew_installed_packages:
+  - bash-completion
+  - git
+  - zsh-history-substring-search
+
+homebrew_cask_packages:
+  - google-chrome
+  - visual-studio-code
+  - discord
+  - barrier
+
+user_name: jalex

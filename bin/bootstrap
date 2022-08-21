@@ -1,0 +1,14 @@
+#!/bin/bash
+set -e
+
+xcode-select --install
+
+sudo pip3 install --upgrade pip
+pip3 install ansible
+
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew install mas
+
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+exit 0

@@ -1,0 +1,12 @@
+---
+- hosts: all
+
+  vars_files:
+    - vars/vars.yml
+
+  tasks:
+    - import_tasks: tasks/macos-base.yml
+      tags: ['base']
+
+    - import_tasks: tasks/fonts.yml
+      tags: ['fonts']

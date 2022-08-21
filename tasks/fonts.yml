@@ -1,0 +1,20 @@
+---
+- name: Download ComicMono.ttf
+  get_url:
+    url: https://dtinth.github.io/comic-mono-font/ComicMono.ttf
+    dest: /tmp/ComicMono.ttf
+
+- name: Install ComicMono.ttf
+  copy:
+    src: /tmp/ComicMono.ttf
+    dest: "/Users/{{ user_name }}/Library/Fonts/ComicMono.ttf"
+
+- name: Download ComicMono-Bold.ttf
+  get_url:
+    url: https://dtinth.github.io/comic-mono-font/ComicMono-Bold.ttf
+    dest: /tmp/ComicMono-Bold.ttf
+
+- name: Install ComicMono-Bold.ttf
+  copy:
+    src: /tmp/ComicMono-Bold.ttf
+    dest: "/Users/{{ user_name }}/Library/Fonts/ComicMono-Bold.ttf"

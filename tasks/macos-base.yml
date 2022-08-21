@@ -1,0 +1,16 @@
+---
+- name: Upgrade all installed Mac App Store apps
+  become: yes
+  community.general.mas:
+    upgrade_all: yes
+
+- name: Install homebrew packages
+  community.general.homebrew:
+    name: "{{ homebrew_installed_packages }}"
+    state: present
+
+- name: Install homebrew cask packages
+  community.general.homebrew_cask:
+    name: "{{ homebrew_cask_packages }}"
+    state: present
+    install_options: 'appdir=/Applications'
