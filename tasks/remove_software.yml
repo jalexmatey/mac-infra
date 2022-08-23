@@ -1,0 +1,5 @@
+---
+#- name: Remove windscribe
+#  community.general.homebrew_cask:
+#    name: windscribe
+#    state: absent

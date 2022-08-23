@@ -9,6 +9,8 @@ homebrew_cask_packages:
   - visual-studio-code
   - discord
   - barrier
+  - windscribe
+  - qbittorrent
 
 user_name: jalex
 
