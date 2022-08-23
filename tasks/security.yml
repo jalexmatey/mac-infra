@@ -1,0 +1,119 @@
+---
+- name: Enable Auto Update
+  community.general.osx_defaults:
+    domain: /Library/Preferences/com.apple.SoftwareUpdate
+    key: AutomaticCheckEnabled
+    type: int
+    value: 1
+  become: yes
+
+- name: Enable Download New Updates When Available
+  community.general.osx_defaults:
+    domain: /Library/Preferences/com.apple.SoftwareUpdate
+    key: AutomaticDownload
+    type: int
+    value: 1
+  become: yes
+
+- name: Enable Installation of App Update
+  community.general.osx_defaults:
+    domain: /Library/Preferences/com.apple.commerce
+    key: AutoUpdate
+    type: int
+    value: 1
+  become: yes
+
+- name: Enable System Data Files automatic downloads
+  community.general.osx_defaults:
+    domain: /Library/Preferences/com.apple.SoftwareUpdate
+    key: ConfigDataInstall
+    type: int
+    value: 1
+  become: yes
+
+- name: Enable Security Updates automatic downloads
+  community.general.osx_defaults:
+    domain: /Library/Preferences/com.apple.SoftwareUpdate
+    key: CriticalUpdateInstall
+    type: int
+    value: 1
+  become: yes
+
+- name: Enable automatic install of macOS Updates
+  community.general.osx_defaults:
+    domain: /Library/Preferences/com.apple.SoftwareUpdate
+    key: AutomaticallyInstallMacOSUpdates
+    type: int
+    value: 1
+  become: yes
+
+- name: Set Software Update Deferment to 30 Days
+  community.general.osx_defaults:
+    domain: /Library/Preferences/com.apple.applicationaccess
+    key: enforcedSoftwareUpdateDelay
+    type: int
+    value: 30
+  become: yes
+
+- name: Enable Bluetooth Status in Menu Bar
+  community.general.osx_defaults:
+    domain: /Library/Preferences/com.apple.controlcenter
+    key: Bluetooth
+    type: int
+    value: 18
+  become: yes
+
+- name: Enable Wi-Fi status in Menu Bar
+  community.general.osx_defaults:
+    domain: /Library/Preferences/com.apple.controlcenter
+    key: WiFi
+    type: int
+    value: 18
+  become: yes
+
+- name: Enable FileVault
+  community.general.osx_defaults:
+    domain: /Library/Preferences/com.apple.MCX
+    key: dontAllowFDEDisable
+    type: bool
+    value: true
+  become: yes
+
+- name: Verify Firewall status
+  command: /usr/bin/defaults read /Library/Preferences/com.apple.alf globalstate
+  register: firewall_status
+    
+- name: Enable Firewall
+  command: /usr/bin/defaults write /Library/Preferences/com.apple.alf globalstate -int 2
+  when: firewall_status == 0
+  become: yes
+
+- name: Verify Firewall Stealth Mode status
+  command: /usr/libexec/ApplicationFirewall/socketfilterfw --getstealthmode | awk '{print $3}'
+  register: stealth_mode_status
+
+- name: Enable Stealth Mode
+  command: /usr/libexec/ApplicationFirewall/socketfilterfw --setstealthmode on
+  when: stealth_mode_status.stdout == 'disabled'
+  become: yes
+
+- name: Verify Gatekeeper status
+  command: bash -c "/usr/sbin/spctl --status"
+  register: gatekeeper_status
+  become: yes
+
+- name: Enable Gatekeeper status
+  command: bash -c "/usr/sbin/spctl --master-enable"
+  when: gatekeeper_status.stdout != 'assessments enabled'
+  become: yes
+
+- name: Verify Login Custom Message status
+  command: bash -c "/usr/bin/defaults read /Library/Preferences/com.apple.loginwindow.plist LoginwindowText"
+  register: login_cus_msg_status
+  ignore_errors: yes
+  become: yes
+
+- name: Set Login Custom Message
+  command: /usr/bin/defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText "Welcome to jalex-macmini."
+  when: login_cus_msg_status.rc != 0
+  become: yes
