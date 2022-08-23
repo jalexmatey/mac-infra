@@ -20,3 +20,7 @@
     name: "{{ homebrew_cask_packages }}"
     state: present
     install_options: 'appdir=/Applications'
+
+- name: Hide desktop icons
+  command: defaults write com.apple.finder CreateDesktop false
+  become: yes
