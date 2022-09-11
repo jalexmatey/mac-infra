@@ -13,6 +13,3 @@
 
     - import_tasks: tasks/fonts.yml
       tags: ['fonts']
-
-    - import_tasks: tasks/remove_software.yml
-      tags: ['app_removal']

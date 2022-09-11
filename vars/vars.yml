@@ -3,6 +3,7 @@ homebrew_installed_packages:
   - bash-completion
   - git
   - zsh-history-substring-search
+  - ansible-lint
 
 homebrew_cask_packages:
   - google-chrome
@@ -11,6 +12,7 @@ homebrew_cask_packages:
   - barrier
   - windscribe
   - qbittorrent
+  - iterm2
 
 user_name: jalex
 

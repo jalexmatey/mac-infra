@@ -1,14 +1,14 @@
 ---
 - name: Set hostname
-  become: yes
+  become: true
   ansible.builtin.hostname:
     name: "{{ host_name }}"
     use: macos
 
 - name: Upgrade all installed Mac App Store apps
-  become: yes
+  become: true
   community.general.mas:
-    upgrade_all: yes
+    upgrade_all: true
 
 - name: Install homebrew packages
   community.general.homebrew:
@@ -22,5 +22,6 @@
     install_options: 'appdir=/Applications'
 
 - name: Hide desktop icons
-  command: defaults write com.apple.finder CreateDesktop false
-  become: yes
+  ansible.builtin.command: defaults write com.apple.finder CreateDesktop false
+  become: true
+  changed_when: false
