@@ -3,6 +3,7 @@ homebrew_installed_packages:
   - bash-completion
   - git
   - zsh-history-substring-search 
+  - ansible-lint
 
 homebrew_cask_packages:
   - google-chrome
