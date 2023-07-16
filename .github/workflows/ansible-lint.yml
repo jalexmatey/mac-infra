@@ -2,13 +2,6 @@ name: ansible-lint
 on: [push, pull_request]
 
 jobs:
-  ansible-lint:
-    runs-on: ubuntu-latest
-    
-    steps:
-      - name: Ansible Lint
-        uses: ansible/ansible-lint-action@v6.17.0
-
   build:
     name: Ansible Lint
     runs-on: ubuntu-latest
