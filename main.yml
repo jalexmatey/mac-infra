@@ -6,11 +6,10 @@
     - vars/vars.yml
 
   tasks:
-    - import_tasks: tasks/security.yml
-      tags: ['never', 'security']
-
-    - import_tasks: tasks/macos-base.yml
+    - name: "MacOS base tasks"
+      ansible.builtin.import_tasks: tasks/macos-base.yml
       tags: ['base']
 
-    - import_tasks: tasks/fonts.yml
+    - name: "MacOS fonts"
+      ansible.builtin.import_tasks: tasks/fonts.yml
       tags: ['fonts']
