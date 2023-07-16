@@ -14,5 +14,5 @@ jobs:
       - name: Run ansible-lint
         uses: ansible/ansible-lint-action@v6
         with:
-          targets: |
+          path: |
             main.yml
