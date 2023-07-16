@@ -1,12 +1,13 @@
 ---
-- hosts: all
+- name: Configure MacOS
+  hosts: all
 
   vars_files:
     - vars/vars.yml
 
   tasks:
     - import_tasks: tasks/security.yml
-      tags: ['security']
+      tags: ['never', 'security']
 
     - import_tasks: tasks/macos-base.yml
       tags: ['base']
