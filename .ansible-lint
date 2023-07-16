@@ -1,0 +1,19 @@
+---
+# .ansible-lint
+
+profile: null # min, basic, moderate,safety, shared, production
+
+# exclude_paths included in this file are parsed relative to this file's location
+# and not relative to the CWD of execution. CLI arguments passed to the --exclude
+# option are parsed relative to the CWD of execution.
+exclude_paths:
+  - .github/ # implicit unless exclude_paths is defined in config
+
+use_default_rules: true
+
+# Ansible-lint does not fail on warnings from the rules or tags listed below
+# warn_list:
+  # - role-name
+
+# Offline mode disables installation of requirements.yml and schema refreshing
+offline: false
