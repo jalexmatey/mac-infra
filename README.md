@@ -75,8 +75,8 @@ Why setup MacOS with IaC?:
 
 ### Installation
 1. Clone or download this repository to your local drive.
-2. Run `./bin/bootstrap` inside this directory. This should install every other requirement, however you can run these manually on the terminal if you prefer.
-3. Run `ansible-playbook main.yml --ask-become-pass --inventory inventory` inside this directory. Enter your macOS account password when prompted for the 'BECOME' password.
+2. Run `./bin/bootstrap` in the repo's root directory. This should install every other requirement, however you can run these manually on the terminal if you prefer.
+3. Run `ansible-playbook main.yml --ask-become-pass` inside this directory. Enter your macOS account password when prompted for the 'BECOME' password.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
