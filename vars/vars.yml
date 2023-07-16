@@ -4,6 +4,7 @@ homebrew_installed_packages:
   - git
   - zsh-history-substring-search
   - ansible-lint
+  - trivy
 
 homebrew_cask_packages:
   - google-chrome
@@ -13,6 +14,7 @@ homebrew_cask_packages:
   - windscribe
   - qbittorrent
   - iterm2
+  - steam
 
 user_name: jalex
 
