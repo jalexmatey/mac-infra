@@ -15,4 +15,4 @@ jobs:
         uses: ansible/ansible-lint-action@v6
         with:
           path: |
-            main.yml
+            ./main.yml
