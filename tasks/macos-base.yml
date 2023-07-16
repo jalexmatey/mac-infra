@@ -10,6 +10,12 @@
   community.general.mas:
     upgrade_all: true
 
+# Update homebrew and upgrade all packages
+- name: Update hombrew packages
+  community.general.homebrew:
+    update_homebrew: true
+    upgrade_all: true
+
 - name: Install homebrew packages
   community.general.homebrew:
     name: "{{ homebrew_installed_packages }}"
