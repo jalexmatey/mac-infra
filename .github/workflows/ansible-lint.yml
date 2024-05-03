@@ -5,8 +5,6 @@ name: ansible-lint
   push:
     branches:
       - main
-  schedule:
-    - cron: "0 5 * * 4"
 
 jobs:
   ansible-lint:
