@@ -5,6 +5,7 @@ homebrew_installed_packages:
   - zsh-history-substring-search
   - ansible-lint
   - trivy
+  - tfenv
 
 homebrew_cask_packages:
   - google-chrome
@@ -15,6 +16,8 @@ homebrew_cask_packages:
   - qbittorrent
   - iterm2
   - steam
+  - google-cloud-sdk
+  - docker
 
 user_name: jalex
 
